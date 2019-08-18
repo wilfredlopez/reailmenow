@@ -2,9 +2,9 @@ import { all, call, fork, put, takeEvery } from 'redux-saga/effects'
 import { HeroesActionTypes } from './types'
 import { fetchError, fetchSuccess } from './actions'
 import { callApi } from '../../utils/api'
-
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://api.opendota.com'
-
+import config from '../../config'
+// const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://api.opendota.com'
+const API_ENDPOINT = config.API_ENDPOINT
 function* handleFetch() {
   try {
     // To call async functions, use redux-saga's `call()`.

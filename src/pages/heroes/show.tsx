@@ -32,8 +32,6 @@ type AllProps = PropsFromState &
   RouteComponentProps<RouteParams> &
   ConnectedReduxProps
 
-// const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://api.opendota.com'
-
 class ShowHeroesPage extends React.Component<AllProps, State> {
   constructor(props: AllProps) {
     super(props)

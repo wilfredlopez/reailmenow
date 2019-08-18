@@ -13,8 +13,10 @@ import {
 // import { UserProfile } from 'src/api_types/ShopAppTypes'
 import { callApi } from '../../utils/api'
 // import { UserProfile } from '../../api_types/ShopAppTypes'
+import config from '../../config/index'
 
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:5000'
+// const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:5000'
+const API_ENDPOINT = config.API_ENDPOINT
 
 function* isAuth(action: ReturnType<typeof verifyAuthAction>) {
   try {

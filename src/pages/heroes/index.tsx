@@ -6,6 +6,8 @@ import { ApplicationState, ConnectedReduxProps } from '../../store'
 import { Hero } from '../../store/heroes/types'
 import { fetchRequest } from '../../store/heroes/actions'
 
+import config from '../../config'
+
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
   loading: boolean
@@ -21,7 +23,8 @@ interface PropsFromDispatch {
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
 type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps
 
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://api.opendota.com'
+// const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://api.opendota.com'
+const API_ENDPOINT = config.API_ENDPOINT
 
 class HeroesIndexPage extends React.Component<AllProps> {
   public componentDidMount() {

@@ -2,8 +2,10 @@ import { all, call, fork, put, takeEvery, takeLatest } from 'redux-saga/effects'
 import { ProductsActionTypes } from './types'
 import { fetchError, fetchSuccess, selectProduct, productSelected, fetchRequest } from './actions'
 import { callApi } from '../../utils/api'
+import config from '../../config/index'
 
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:5000'
+// const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:5000'
+const API_ENDPOINT = config.API_ENDPOINT
 
 function* handleFetch(action: ReturnType<typeof fetchRequest>) {
   try {
