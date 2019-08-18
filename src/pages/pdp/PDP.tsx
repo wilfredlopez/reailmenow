@@ -1,16 +1,16 @@
+// import { Dispatch } from "redux"
+import { Button, Container, Divider } from '@material-ui/core'
 import * as React from 'react'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 // import {useCallback} from 'react'
 // import { useSelector, useDispatch } from "react-redux"
-
 import { RouteComponentProps } from 'react-router'
-
-// import { Dispatch } from "redux"
-
-import { Button, Container, Divider } from '@material-ui/core'
 import { Product } from '../../api_types/ShopAppTypes'
-
+import config from '../../config'
 import './pdp.scss'
+
+const API_ENDPOINT = config.API_ENDPOINT
+
 interface RouteParams {
   id: string
 }
@@ -26,7 +26,7 @@ const PDP = (props: PDPProps) => {
   // const dec: () => void = useCallback(() => dispatch(decrement()), [dispatch])
   const fetchProduct = async () => {
     const id = match.params.id
-    const res = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/api/products/id/${id}`)
+    const res = await fetch(`${API_ENDPOINT}/api/products/id/${id}`)
 
     const data = await res.json()
 
